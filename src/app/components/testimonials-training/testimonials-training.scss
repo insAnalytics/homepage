@@ -3,14 +3,38 @@
 .testimonials-train {
   background: $white;
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: $grid-gap;
+  &__carousel-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
 
-    @media (max-width: $bp-tablet) {
-      grid-template-columns: 1fr;
-      max-width: 600px;
+  &__swiper {
+    flex: 1;
+    min-width: 0;
+    padding-bottom: 48px !important;
+  }
+
+  &__arrow {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid $light-grey;
+    background: $white;
+    color: $primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    align-self: center;
+    margin-bottom: 48px;
+
+    &:hover {
+      background: $primary;
+      color: $white;
+      border-color: $primary;
     }
   }
 
@@ -22,6 +46,8 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    height: 100%;
+    box-sizing: border-box;
   }
 
   &__mark {
@@ -34,6 +60,12 @@
     position: absolute;
     top: 20px;
     left: 28px;
+  }
+
+  &__stars {
+    font-size: 16px;
+    letter-spacing: 2px;
+    padding-top: 8px;
   }
 
   &__quote {
@@ -65,5 +97,17 @@
     font-family: $font-heading;
     font-size: 12px;
     color: $mid-grey;
+  }
+}
+
+::ng-deep .testimonials-train__swiper {
+  .swiper-pagination-bullet {
+    background: $mid-grey;
+    opacity: 0.4;
+
+    &-active {
+      background: $primary;
+      opacity: 1;
+    }
   }
 }

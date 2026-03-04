@@ -5,37 +5,29 @@
       <span class="section-label">LEARNING OUTCOMES</span>
       <h2 class="h2-section">What Our Training Participants Say</h2>
     </div>
-    <div class="testimonials-train__grid">
-      <div class="testimonials-train__card fade-up">
-        <span class="testimonials-train__mark">"</span>
-        <blockquote class="testimonials-train__quote">
-          [ Training participant testimonial to be added ]
-        </blockquote>
-        <div class="testimonials-train__author">
-          <strong class="testimonials-train__name">[ Participant Name ]</strong>
-          <span class="testimonials-train__role">[ Designation, Organisation ]</span>
+    <div class="testimonials-train__carousel-wrap">
+      <button class="testimonials-train__arrow" #prevBtn aria-label="Previous">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <div class="swiper testimonials-train__swiper" #swiperEl>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let card of cards">
+            <div class="testimonials-train__card">
+              <span class="testimonials-train__mark">"</span>
+              <div class="testimonials-train__stars" *ngIf="card.googleReview">⭐⭐⭐⭐⭐</div>
+              <blockquote class="testimonials-train__quote">{{ card.quote }}</blockquote>
+              <div class="testimonials-train__author">
+                <strong class="testimonials-train__name">{{ card.name }}</strong>
+                <span class="testimonials-train__role">{{ card.title }}</span>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="swiper-pagination tt__pagination"></div>
       </div>
-      <div class="testimonials-train__card fade-up">
-        <span class="testimonials-train__mark">"</span>
-        <blockquote class="testimonials-train__quote">
-          [ Training participant testimonial to be added ]
-        </blockquote>
-        <div class="testimonials-train__author">
-          <strong class="testimonials-train__name">[ Participant Name ]</strong>
-          <span class="testimonials-train__role">[ Designation, Organisation ]</span>
-        </div>
-      </div>
-      <div class="testimonials-train__card fade-up">
-        <span class="testimonials-train__mark">"</span>
-        <blockquote class="testimonials-train__quote">
-          [ Training participant testimonial to be added ]
-        </blockquote>
-        <div class="testimonials-train__author">
-          <strong class="testimonials-train__name">[ Participant Name ]</strong>
-          <span class="testimonials-train__role">[ Designation, Organisation ]</span>
-        </div>
-      </div>
+      <button class="testimonials-train__arrow" #nextBtn aria-label="Next">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
     </div>
   </div>
 </section>

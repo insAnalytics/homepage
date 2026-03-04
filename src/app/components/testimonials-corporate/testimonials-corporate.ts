@@ -81,6 +81,7 @@ export class TestimonialsCorporate implements AfterViewInit, OnDestroy {
         spaceBetween: 24,
         slidesPerView: 1,
         slidesPerGroup: 1,
+        loop: true,
         navigation: {
           prevEl: this.prevRef.nativeElement,
           nextEl: this.nextRef.nativeElement,
