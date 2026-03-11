@@ -102,16 +102,6 @@ export class Team implements AfterViewInit, OnDestroy {
       ],
     },
     {
-      name: 'Mr. Srijan Biswas',
-      title: 'Consultant, AI/GenAI',
-      initials: 'SB',
-      credentials: [
-        '6.5 years in AI/GenAI, Multi-cloud Platforms (AWS, Azure, IBM Cloud), Finance & Trading',
-        'Software Developer at Cantor Fitzgerald (US), Reliance Industries',
-        'MS Computer Science, Stevens Institute of Technology, NJ | BE CS, Jadavpur University',
-      ],
-    },
-    {
       name: 'Mr. Abhishek Ranjan',
       title: 'Chief Business Officer',
       initials: 'AR',
