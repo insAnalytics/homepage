@@ -63,6 +63,15 @@ export class Hero implements AfterViewInit, OnDestroy {
 
   private loop(): void {
     const canvas = this.canvasRef.nativeElement;
+
+    // Keep pixel dimensions in sync with CSS layout dimensions
+    if (canvas.offsetWidth > 0 && canvas.offsetHeight > 0) {
+      if (canvas.width !== canvas.offsetWidth || canvas.height !== canvas.offsetHeight) {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+      }
+    }
+
     const ctx = this.ctx;
     const nodes = this.nodes;
     const t = performance.now() * 0.001;

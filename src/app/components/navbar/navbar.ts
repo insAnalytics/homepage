@@ -9,6 +9,8 @@ import { Component, HostListener } from '@angular/core';
 export class Navbar {
   isScrolled = false;
   menuOpen = false;
+  dropdownOpen = false;
+  private closeTimer: ReturnType<typeof setTimeout> | null = null;
 
   @HostListener('window:scroll')
   onScroll() {
@@ -19,9 +21,23 @@ export class Navbar {
     this.menuOpen = !this.menuOpen;
   }
 
+  openDropdown() {
+    if (this.closeTimer) { clearTimeout(this.closeTimer); this.closeTimer = null; }
+    this.dropdownOpen = true;
+  }
+
+  closeDropdown() {
+    this.closeTimer = setTimeout(() => { this.dropdownOpen = false; }, 150);
+  }
+
+  toggleDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
+  }
+
   smoothScroll(event: Event, id: string) {
     event.preventDefault();
     this.menuOpen = false;
+    this.dropdownOpen = false;
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }

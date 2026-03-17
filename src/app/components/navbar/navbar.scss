@@ -54,6 +54,79 @@
     }
   }
 
+  &__dropdown-item {
+    position: relative;
+  }
+
+  &__dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: $font-heading;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: $dark;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &__chevron {
+    transition: transform 0.2s ease;
+
+    .dropdown-open & {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    background: $white;
+    border: 1px solid $light-grey;
+    box-shadow: 0 8px 24px rgba(43, 45, 126, 0.1);
+    border-radius: 4px;
+    list-style: none;
+    min-width: 180px;
+    padding: 6px 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+
+    .dropdown-open & {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    li a {
+      display: block;
+      padding: 10px 18px;
+      font-family: $font-heading;
+      font-size: 13px;
+      font-weight: 500;
+      color: $dark;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.15s, background 0.15s;
+      letter-spacing: 0.02em;
+
+      &:hover {
+        color: $primary;
+        background: $off-white;
+      }
+    }
+  }
+
   &__hamburger {
     display: none;
     flex-direction: column;
@@ -101,6 +174,52 @@
       li a {
         display: block;
         padding: 14px 24px;
+      }
+    }
+
+    .navbar__dropdown-item {
+      position: static;
+      width: 100%;
+    }
+
+    .navbar__dropdown-trigger {
+      width: 100%;
+      justify-content: space-between;
+      padding: 14px 24px;
+      font-size: 14px;
+    }
+
+    .navbar__dropdown-menu {
+      position: static;
+      transform: none;
+      box-shadow: none;
+      border: none;
+      border-top: 1px solid $light-grey;
+      border-bottom: 1px solid $light-grey;
+      border-radius: 0;
+      background: $off-white;
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 1;
+      pointer-events: none;
+      transition: max-height 0.25s ease;
+
+      .dropdown-open & {
+        max-height: 120px;
+        pointer-events: auto;
+        transform: none;
+      }
+
+      li a {
+        padding: 12px 36px;
+        font-size: 13px;
+        color: $mid-grey;
+
+        &:hover {
+          color: $primary;
+          background: $light-grey;
+        }
       }
     }
   }
