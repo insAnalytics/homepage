@@ -54,7 +54,7 @@ export class ContentService {
             title,
             body,
             deliveryMode,
-            "functionTags": coalesce(functionTags[]->name, [])
+            "functionTags": coalesce(functionTags[defined(@->name)]->name, [])
           },
           _id,
           _createdAt
@@ -69,8 +69,8 @@ export class ContentService {
       'case-studies',
       `*[_type == "caseStudy"]{
         "slug": slug.current,
-        "industries": industries[]->name,
-        "technologies": coalesce(technologies[]->name, []),
+        "industries": coalesce(industries[defined(@->name)]->name, []),
+        "technologies": coalesce(technologies[defined(@->name)]->name, []),
         geography,
         headline,
         summary,
@@ -80,7 +80,7 @@ export class ContentService {
           _type == "pdfBlock" => { label, "url": file.asset->url }
         },
         "image": image.asset->url,
-        "team": team[]->{
+        "team": team[defined(@->name)]->{
           "slug": slug.current,
           name,
           title,
