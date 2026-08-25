@@ -115,16 +115,21 @@ export class ContentService {
   }
 
   getCorporateTestimonials(): Observable<TestimonialCard[]> {
-    return this.load<TestimonialCard[]>(
+    return this.load<{ cards: (TestimonialCard & Ordered)[]; order: string[] }>(
       'testimonials-corporate',
-      `*[_type == "corporateTestimonial"]{
-        name,
-        title,
-        quote,
-        "logo": logo.asset->url,
-        "letterUrl": letterUrl.asset->url
+      `{
+        "cards": *[_type == "corporateTestimonial"]{
+          name,
+          title,
+          quote,
+          "logo": logo.asset->url,
+          "letterUrl": letterUrl.asset->url,
+          _id,
+          _createdAt
+        },
+        "order": *[_type == "displayOrder"][0].corporateTestimonialOrder[]->_id
       }`
-    );
+    ).pipe(map(({ cards, order }) => this.applyOrder(cards, order)));
   }
 
   getTrainingTestimonials(): Observable<TestimonialCard[]> {

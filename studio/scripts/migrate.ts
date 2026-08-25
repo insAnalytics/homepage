@@ -362,9 +362,10 @@ async function migrateNews(): Promise<Map<string, string>> {
   return idBySlug
 }
 
-async function migrateCorporateTestimonials() {
+async function migrateCorporateTestimonials(): Promise<string[]> {
   const testimonials = readJson<CorporateTestimonialJson[]>('testimonials-corporate.json')
   console.log(`\nCreating corporateTestimonial documents (${testimonials.length})...`)
+  const ids: string[] = []
   let i = 0
   for (const t of testimonials) {
     i += 1
@@ -380,7 +381,9 @@ async function migrateCorporateTestimonials() {
       ...(logo ? {logo: {_type: 'image', ...logo}} : {}),
       ...(letter ? {letterUrl: {_type: 'file', ...letter}} : {}),
     })
+    ids.push(id)
   }
+  return ids
 }
 
 async function migrateTrainingTestimonials() {
@@ -416,7 +419,11 @@ async function migrateOffices() {
   }
 }
 
-async function migrateDisplayOrder(teamIdBySlug: Map<string, string>, pillarIdBySlug: Map<string, string>) {
+async function migrateDisplayOrder(
+  teamIdBySlug: Map<string, string>,
+  pillarIdBySlug: Map<string, string>,
+  corporateTestimonialIds: string[]
+) {
   console.log('\nCreating displayOrder singleton...')
   const team = readJson<TeamMemberJson[]>('team.json')
   const pillars = readJson<PillarJson[]>('pillars.json')
@@ -432,6 +439,11 @@ async function migrateDisplayOrder(teamIdBySlug: Map<string, string>, pillarIdBy
       _type: 'reference',
       _key: key(),
       _ref: pillarIdBySlug.get(p.slug)!,
+    })),
+    corporateTestimonialOrder: corporateTestimonialIds.map((id) => ({
+      _type: 'reference',
+      _key: key(),
+      _ref: id,
     })),
   })
 }
@@ -469,11 +481,11 @@ async function main() {
   const caseStudyIdBySlug = await migrateCaseStudies(industryIdByName, technologyIdByName, teamIdBySlug)
   const newsItemIdBySlug = await migrateNews()
 
-  await migrateCorporateTestimonials()
+  const corporateTestimonialIds = await migrateCorporateTestimonials()
   await migrateTrainingTestimonials()
   await migrateOffices()
 
-  await migrateDisplayOrder(teamIdBySlug, pillarIdBySlug)
+  await migrateDisplayOrder(teamIdBySlug, pillarIdBySlug, corporateTestimonialIds)
   await migrateFeaturedContent(caseStudyIdBySlug, newsItemIdBySlug)
 
   console.log('\nMigration complete.')

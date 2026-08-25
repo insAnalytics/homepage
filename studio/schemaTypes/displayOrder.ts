@@ -25,6 +25,13 @@ export default defineType({
       type: 'array',
       of: [{type: 'reference', to: [{type: 'pillar'}]}],
     }),
+    defineField({
+      name: 'corporateTestimonialOrder',
+      title: 'Corporate Testimonials',
+      description: 'Drag to set the order client testimonials appear in — put your highest-value clients first.',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'corporateTestimonial'}]}],
+    }),
   ],
   preview: {
     prepare() {
