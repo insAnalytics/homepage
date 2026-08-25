@@ -32,6 +32,13 @@ export default defineType({
       type: 'array',
       of: [{type: 'reference', to: [{type: 'corporateTestimonial'}]}],
     }),
+    defineField({
+      name: 'trainingTestimonialOrder',
+      title: 'Training Testimonials',
+      description: 'Drag to set the order training testimonials appear in.',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'trainingTestimonial'}]}],
+    }),
   ],
   preview: {
     prepare() {

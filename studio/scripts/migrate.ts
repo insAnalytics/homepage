@@ -386,9 +386,10 @@ async function migrateCorporateTestimonials(): Promise<string[]> {
   return ids
 }
 
-async function migrateTrainingTestimonials() {
+async function migrateTrainingTestimonials(): Promise<string[]> {
   const testimonials = readJson<TrainingTestimonialJson[]>('testimonials-training.json')
   console.log(`\nCreating trainingTestimonial documents (${testimonials.length})...`)
+  const ids: string[] = []
   let i = 0
   for (const t of testimonials) {
     i += 1
@@ -401,7 +402,9 @@ async function migrateTrainingTestimonials() {
       quote: t.quote,
       googleReview: t.googleReview ?? false,
     })
+    ids.push(id)
   }
+  return ids
 }
 
 async function migrateOffices() {
@@ -422,7 +425,8 @@ async function migrateOffices() {
 async function migrateDisplayOrder(
   teamIdBySlug: Map<string, string>,
   pillarIdBySlug: Map<string, string>,
-  corporateTestimonialIds: string[]
+  corporateTestimonialIds: string[],
+  trainingTestimonialIds: string[]
 ) {
   console.log('\nCreating displayOrder singleton...')
   const team = readJson<TeamMemberJson[]>('team.json')
@@ -441,6 +445,11 @@ async function migrateDisplayOrder(
       _ref: pillarIdBySlug.get(p.slug)!,
     })),
     corporateTestimonialOrder: corporateTestimonialIds.map((id) => ({
+      _type: 'reference',
+      _key: key(),
+      _ref: id,
+    })),
+    trainingTestimonialOrder: trainingTestimonialIds.map((id) => ({
       _type: 'reference',
       _key: key(),
       _ref: id,
@@ -482,10 +491,10 @@ async function main() {
   const newsItemIdBySlug = await migrateNews()
 
   const corporateTestimonialIds = await migrateCorporateTestimonials()
-  await migrateTrainingTestimonials()
+  const trainingTestimonialIds = await migrateTrainingTestimonials()
   await migrateOffices()
 
-  await migrateDisplayOrder(teamIdBySlug, pillarIdBySlug, corporateTestimonialIds)
+  await migrateDisplayOrder(teamIdBySlug, pillarIdBySlug, corporateTestimonialIds, trainingTestimonialIds)
   await migrateFeaturedContent(caseStudyIdBySlug, newsItemIdBySlug)
 
   console.log('\nMigration complete.')

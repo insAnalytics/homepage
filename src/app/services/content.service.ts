@@ -133,15 +133,20 @@ export class ContentService {
   }
 
   getTrainingTestimonials(): Observable<TestimonialCard[]> {
-    return this.load<TestimonialCard[]>(
+    return this.load<{ cards: (TestimonialCard & Ordered)[]; order: string[] }>(
       'testimonials-training',
-      `*[_type == "trainingTestimonial"]{
-        name,
-        title,
-        quote,
-        googleReview
+      `{
+        "cards": *[_type == "trainingTestimonial"]{
+          name,
+          title,
+          quote,
+          googleReview,
+          _id,
+          _createdAt
+        },
+        "order": *[_type == "displayOrder"][0].trainingTestimonialOrder[]->_id
       }`
-    );
+    ).pipe(map(({ cards, order }) => this.applyOrder(cards, order)));
   }
 
   getOffices(): Observable<Office[]> {
