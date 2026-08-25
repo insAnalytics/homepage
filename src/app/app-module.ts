@@ -7,7 +7,6 @@ import { provideHttpClient } from '@angular/common/http';
 import { App } from './app';
 import { AppRoutingModule } from './app-routing-module';
 import { Navbar } from './components/navbar/navbar';
-import { Banner } from './components/banner/banner';
 import { Hero } from './components/hero/hero';
 import { StatsStrip } from './components/stats-strip/stats-strip';
 import { BatFramework } from './components/bat-framework/bat-framework';
@@ -31,7 +30,6 @@ import { ContactPage } from './pages/contact-page/contact-page';
   declarations: [
     App,
     Navbar,
-    Banner,
     Hero,
     StatsStrip,
     BatFramework,
