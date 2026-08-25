@@ -54,7 +54,7 @@ export class ContentService {
             title,
             body,
             deliveryMode,
-            "functionTags": functionTags[]->name
+            "functionTags": coalesce(functionTags[]->name, [])
           },
           _id,
           _createdAt
@@ -70,7 +70,7 @@ export class ContentService {
       `*[_type == "caseStudy"]{
         "slug": slug.current,
         "industries": industries[]->name,
-        "technologies": technologies[]->name,
+        "technologies": coalesce(technologies[]->name, []),
         geography,
         headline,
         summary,
