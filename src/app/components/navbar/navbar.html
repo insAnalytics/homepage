@@ -1,26 +1,16 @@
 <nav class="navbar" [class.scrolled]="isScrolled">
   <div class="container navbar__inner">
-    <a class="navbar__logo" href="#" (click)="smoothScroll($event, 'hero')">
+    <a class="navbar__logo" routerLink="/">
       <img src="logo.png" alt="InsAnalytics — Insights. Through Analytics." class="navbar__logo-img"
            (error)="logoImg.style.display='none'; logoText.style.display='block'" #logoImg />
       <span class="navbar__logo-text" #logoText style="display:none">InsAnalytics</span>
     </a>
     <ul class="navbar__links" [class.open]="menuOpen">
-      <li><a href="#what-we-do" (click)="smoothScroll($event, 'what-we-do')">What We Do</a></li>
-      <li><a href="#team" (click)="smoothScroll($event, 'team')">Our Team</a></li>
-      <li class="navbar__dropdown-item" [class.dropdown-open]="dropdownOpen" (mouseenter)="openDropdown()" (mouseleave)="closeDropdown()">
-        <button class="navbar__dropdown-trigger" (click)="toggleDropdown()">
-          Client Voices
-          <svg class="navbar__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <ul class="navbar__dropdown-menu" (mouseenter)="openDropdown()" (mouseleave)="closeDropdown()">
-          <li><a href="#client-voices" (click)="smoothScroll($event, 'client-voices')">Corporate Clients</a></li>
-          <li><a href="#learning-outcomes" (click)="smoothScroll($event, 'learning-outcomes')">Training Participants</a></li>
-        </ul>
-      </li>
-      <li><a href="#contact" (click)="smoothScroll($event, 'contact')">Contact Us</a></li>
+      <li><a routerLink="/capabilities" routerLinkActive="active">Capabilities</a></li>
+      <li><a routerLink="/case-studies" routerLinkActive="active">Case Studies</a></li>
+      <li><a routerLink="/insights" routerLinkActive="active">Insights &amp; News</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
     </ul>
     <button class="navbar__hamburger" [class.open]="menuOpen" (click)="toggleMenu()" aria-label="Toggle menu">
       <span></span>

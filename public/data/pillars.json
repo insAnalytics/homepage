@@ -1,0 +1,153 @@
+[
+  {
+    "slug": "asset-operations-intelligence",
+    "title": "Asset & Operations Intelligence",
+    "summary": "Predictive maintenance, reliability, and precision/quality — keeping physical assets and operations running at their best.",
+    "solutions": [
+      {
+        "title": "Predictive maintenance",
+        "body": "Failure prediction before breakdown, using sensor and maintenance-history data to flag at-risk assets ahead of time.",
+        "deliveryMode": "Consulting",
+        "functionTags": ["Operations & Process Excellence", "Supply Chain & Logistics"]
+      },
+      {
+        "title": "Reliability analytics for high-value assets",
+        "body": "Warranty reserve and failure modeling for large, long-lifecycle assets.",
+        "deliveryMode": "Consulting + R&D",
+        "functionTags": ["Corp. Finance & Risk", "Operations & Process Excellence"]
+      },
+      {
+        "title": "Precision & quality",
+        "body": "Computer-vision defect detection integrated into production lines.",
+        "deliveryMode": "Product Development",
+        "functionTags": ["Operations & Process Excellence"]
+      }
+    ]
+  },
+  {
+    "slug": "supply-chain-demand",
+    "title": "Supply Chain & Demand Intelligence",
+    "summary": "Forecasting and inventory optimization so the right stock is in the right place at the right time.",
+    "solutions": [
+      {
+        "title": "Demand forecasting",
+        "body": "SKU- and segment-level forecasting that blends macro, seasonal, and promotional signals.",
+        "deliveryMode": "Consulting",
+        "functionTags": ["Supply Chain & Logistics", "Sales"]
+      },
+      {
+        "title": "Inventory optimization",
+        "body": "EOQ and safety-stock modeling to cut carrying cost without hurting service levels.",
+        "deliveryMode": "Consulting",
+        "functionTags": ["Supply Chain & Logistics", "Finance & Accounting"]
+      }
+    ]
+  },
+  {
+    "slug": "cost-process-efficiency",
+    "title": "Cost, Process & Efficiency",
+    "summary": "Six Sigma–driven yield and waste reduction across manufacturing and back-office processes.",
+    "solutions": [
+      {
+        "title": "Yield & waste reduction",
+        "body": "Statistical process control and root-cause analysis to lift first-pass yield.",
+        "deliveryMode": "Consulting",
+        "functionTags": ["Operations & Process Excellence"]
+      },
+      {
+        "title": "Process cost modeling",
+        "body": "Activity-based costing to find where cost-to-serve is highest and why.",
+        "deliveryMode": "Consulting",
+        "functionTags": ["Finance & Accounting", "Operations & Process Excellence"]
+      }
+    ]
+  },
+  {
+    "slug": "risk-compliance-esg",
+    "title": "Risk, Compliance & ESG",
+    "summary": "Credit scoring, fraud detection, and CBAM/export-compliance analytics for regulated and high-exposure businesses.",
+    "solutions": [
+      {
+        "title": "Creditworthiness scoring",
+        "body": "Multi-variable scoring models built on a CRISP-DM methodology.",
+        "deliveryMode": "Consulting + R&D",
+        "functionTags": ["Corp. Finance & Risk"]
+      },
+      {
+        "title": "Fraud detection",
+        "body": "Anomaly-detection models tuned to transaction- or claims-level data.",
+        "deliveryMode": "Product Development",
+        "functionTags": ["Corp. Finance & Risk"]
+      },
+      {
+        "title": "CBAM / export compliance analytics",
+        "body": "Emissions and trade-compliance reporting support for exporters facing new carbon-border rules.",
+        "deliveryMode": "Consulting",
+        "functionTags": ["Corp. Finance & Risk", "Supply Chain & Logistics"]
+      }
+    ]
+  },
+  {
+    "slug": "growth-commercial-analytics",
+    "title": "Growth & Commercial Analytics",
+    "summary": "Marketing budget impact and customer/segment analytics to grow revenue with evidence, not guesswork.",
+    "solutions": [
+      {
+        "title": "Marketing budget impact assessment",
+        "body": "Media-mix and attribution modeling to show which spend actually moves revenue.",
+        "deliveryMode": "Consulting",
+        "functionTags": ["Strategy & Marketing", "Sales"]
+      },
+      {
+        "title": "Customer & segment analytics",
+        "body": "Behavioral segmentation and lifetime-value modeling to prioritize the customers worth investing in.",
+        "deliveryMode": "Consulting",
+        "functionTags": ["Strategy & Marketing", "Sales"]
+      }
+    ]
+  },
+  {
+    "slug": "digital-transformation-ai-platforms",
+    "title": "Digital Transformation & AI Platforms",
+    "summary": "GenAI, BI dashboards, and AI-optimized hardware — the platforms that make the other pillars run at scale.",
+    "solutions": [
+      {
+        "title": "GenAI deployment",
+        "body": "Applied GenAI for internal knowledge work and customer-facing use cases.",
+        "deliveryMode": "Product Development",
+        "functionTags": ["Operations & Process Excellence", "Strategy & Marketing"]
+      },
+      {
+        "title": "BI dashboards & analytics platforms",
+        "body": "End-to-end visual analytics platforms built for a specific decision workflow, not a generic BI tool.",
+        "deliveryMode": "Product Development",
+        "functionTags": ["Finance & Accounting", "Operations & Process Excellence"]
+      },
+      {
+        "title": "AI-optimized hardware",
+        "body": "GPU and edge-hardware power-performance optimization for AI workloads.",
+        "deliveryMode": "R&D",
+        "functionTags": ["Operations & Process Excellence"]
+      }
+    ]
+  },
+  {
+    "slug": "capability-building-training",
+    "title": "Capability Building & Training",
+    "summary": "Executive and technical training programs — a different buyer and budget line from the other six pillars, so it stays its own front door.",
+    "solutions": [
+      {
+        "title": "Executive AI & analytics programs",
+        "body": "Leadership-level programs on AI strategy and data-driven decision-making.",
+        "deliveryMode": "Training",
+        "functionTags": ["Human Resources"]
+      },
+      {
+        "title": "Technical upskilling programs",
+        "body": "Hands-on training in Business Analytics, Machine Learning, and RPA for practitioner teams.",
+        "deliveryMode": "Training",
+        "functionTags": ["Human Resources", "Operations & Process Excellence"]
+      }
+    ]
+  }
+]

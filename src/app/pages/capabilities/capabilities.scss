@@ -1,0 +1,350 @@
+@import '../../../styles/scss/variables';
+
+.capabilities-filter {
+  background: $off-white;
+  padding-bottom: 40px;
+
+  .section-header {
+    margin-bottom: 24px;
+  }
+}
+
+.capabilities__filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.capabilities__filter-results {
+  margin-top: 24px;
+}
+
+.capabilities__pillar-label {
+  display: block;
+  font-family: $font-heading;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $mid-grey;
+  margin-bottom: 10px;
+}
+
+.capabilities__tag {
+  font-family: $font-heading;
+  font-size: 12.5px;
+  color: $primary;
+  background: $off-white;
+  border: 1px solid $light-grey;
+  border-radius: 20px;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &.active {
+    background: $primary;
+    color: $white;
+    border-color: $primary;
+  }
+
+  &--clear {
+    background: transparent;
+    border-color: transparent;
+    color: $mid-grey;
+    text-decoration: underline;
+  }
+}
+
+// ── Carousel wrapper: arrow | swiper | arrow (shared by both carousels) ──
+.capabilities__carousel-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.capabilities__arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid $light-grey;
+  background: $white;
+  color: $primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+
+  &:hover {
+    background: $primary;
+    color: $white;
+    border-color: $primary;
+  }
+}
+
+.capabilities__swiper {
+  flex: 1;
+  min-width: 0;
+  padding-bottom: 44px !important;
+}
+
+::ng-deep .capabilities__swiper {
+  .swiper-wrapper {
+    align-items: stretch;
+  }
+
+  .swiper-slide {
+    height: auto;
+  }
+
+  .swiper-pagination {
+    bottom: 8px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: $light-grey;
+    opacity: 1;
+    transition: background 0.2s, transform 0.2s;
+
+    &-active {
+      background: $primary;
+      transform: scale(1.4);
+    }
+  }
+}
+
+.capabilities__pillar-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  background: $white;
+  border: 1px solid $light-grey;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+  cursor: pointer;
+  font: inherit;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-card-hover;
+  }
+
+  &.active {
+    border-color: $accent;
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+// Swiper stretches every slide in a row to match the tallest one — as a flex
+// column, the media stays a fixed height and the body (flex: 1 below) absorbs
+// that extra height, instead of an unpredictable gap appearing between them.
+.capabilities__pillar-media {
+  flex-shrink: 0;
+  height: 140px;
+
+  &--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $off-white;
+    padding: 20px;
+  }
+}
+
+.capabilities__pillar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.capabilities__pillar-media--placeholder .capabilities__pillar-image {
+  width: 72px;
+  height: auto;
+  object-fit: contain;
+}
+
+.capabilities__pillar-card-body {
+  flex: 1;
+  padding: 24px;
+
+  h3 { margin-bottom: 10px; }
+}
+
+.capabilities__expanded {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid $light-grey;
+  scroll-margin-top: 100px;
+}
+
+.capabilities__pillar-intro {
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+  margin-bottom: 36px;
+  background: $off-white;
+  border-radius: 10px;
+  overflow: hidden;
+
+  @media (max-width: $bp-mobile) {
+    flex-direction: column;
+  }
+}
+
+.capabilities__hero-media {
+  flex: 0 0 34%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+
+  &--placeholder {
+    padding: 24px;
+  }
+
+  @media (max-width: $bp-mobile) {
+    flex-basis: auto;
+    min-height: 120px;
+  }
+}
+
+.capabilities__hero-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.capabilities__hero-media--placeholder .capabilities__hero-image {
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+}
+
+.capabilities__pillar-intro-body {
+  flex: 1;
+  padding: 28px 28px 28px 0;
+
+  h3 { color: $primary; margin-bottom: 10px; }
+
+  @media (max-width: $bp-mobile) {
+    padding: 0 20px 24px;
+  }
+}
+
+
+.capabilities__solution-card {
+  background: $white;
+  border: 1px solid $light-grey;
+  border-radius: 6px;
+  padding: 22px;
+  box-shadow: $shadow-card;
+  height: 100%;
+  box-sizing: border-box;
+
+  h4 { margin-bottom: 8px; }
+}
+
+.capabilities__mode-tag {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: $font-heading;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $accent;
+  border: 1px solid $accent;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.capabilities-methodology-strip {
+  padding: 56px 0;
+}
+
+.capabilities-methodology-strip__inner {
+  max-width: 640px;
+  border-left: 2px solid $accent;
+  padding-left: 28px;
+}
+
+.capabilities-methodology-strip__quote {
+  font-family: $font-display;
+  font-size: 20px;
+  font-weight: 700;
+  color: $dark;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.capabilities-methodology-strip__link {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: $font-heading;
+  font-size: 14px;
+  font-weight: 600;
+  color: $primary;
+  text-decoration: none;
+}
+
+// ── Sidebar CTA: persists on screen while scrolling, desktop only per the
+// wireframe ("Sidebar CTA (sticky on desktop)"). There's no two-column
+// sidebar layout on this page, so a viewport-fixed card is the equivalent —
+// it stays put the same way a sticky sidebar element would. Collapses to a
+// normal inline block on mobile so it can't cover content on a small screen.
+.capabilities-sidebar-cta {
+  background: $primary;
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(26, 26, 46, 0.18);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+
+  .btn-primary {
+    background: $accent;
+    text-align: center;
+    border-radius: 6px;
+
+    &:hover {
+      background: #329e40;
+    }
+  }
+
+  @media (min-width: $bp-mobile) {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    z-index: 40;
+    width: 260px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+
+    &--hidden {
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+    }
+  }
+
+  @media (max-width: $bp-mobile) {
+    margin: 0 $container-padding-mobile 40px;
+    text-align: center;
+  }
+}
+
+.capabilities-sidebar-cta__text {
+  font-family: $font-heading;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: $white;
+  margin: 0;
+}

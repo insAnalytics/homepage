@@ -1,0 +1,79 @@
+[
+  {
+    "logo": "client-logos/numerify.png",
+    "quote": "\"insAnalytics built and operationalized the models for us and they are now core parts of our product offering, successfully deployed at our customers including a few Fortune 25 customers. They have shown great technical competence, but more importantly helped us frame the solution in a way that adds true value. They have met their commitments in terms of timelines and completeness of solution.\"",
+    "name": "Numerify Inc.",
+    "title": "San Jose, USA",
+    "letterUrl": "testimonial-letter/Numerify.png"
+  },
+  {
+    "logo": "client-logos/mjunction.png",
+    "quote": "\"The assignments were successfully completed: Tea Auction Price Prediction — based on which mJunction selected us out of many for a subsequent visual analytics assignment — and a Tableau-based visual analytics dashboard for our loyalty program. We look forward to working with you in future.\"",
+    "name": "Amit Khan",
+    "title": "Chief Information Officer, mJunction, India",
+    "letterUrl": "testimonial-letter/mJunction.png"
+  },
+  {
+    "logo": "client-logos/csir_neeri.png",
+    "quote": "\"insAnalytics performed very well in meeting the objectives set out for the workshop and created huge interest in our scientists in implementing machine learning algorithms in their respective areas. Post the session, our top management and scientists had an in-depth discussion with the insAnalytics team — the session was really fruitful. We look forward to a much stronger association.\"",
+    "name": "Dr. Sunil Kumar",
+    "title": "Senior Scientist, CSIR-NEERI, Nagpur",
+    "letterUrl": "testimonial-letter/CSIR-NEERI.png"
+  },
+  {
+    "logo": "client-logos/strategy-academy.jpg",
+    "quote": "\"The Academy took the services of insAnalytics for delivering training modules in Data Analytics and Machine Learning, leveraging the academic background as well as industry experience of their pool of faculty members. We are thankful to insAnalytics for successfully conducting the above mentioned sessions for our end customers in these niche and emerging areas. The sessions conducted by them were found as satisfying to our participants.\"",
+    "name": "Prof. Ranjan Das",
+    "title": "Chairman, The Strategy Academy",
+    "letterUrl": "testimonial-letter/strategy-academy.png"
+  },
+  {
+    "logo": "client-logos/eRevMax.png",
+    "quote": "\"After evaluating several Corporate Training service providers in Kolkata and Bangalore, we selected insAnalytics. I am thankful for conducting a very effective program that enabled our employees to become hands-on and proficient in applying Big Data skills within a quick time. I would highly recommend their services.\"",
+    "name": "Udai Solanki",
+    "title": "MD & CTO, eRevMax, India",
+    "letterUrl": "testimonial-letter/eRevMax.png"
+  },
+  {
+    "logo": "client-logos/Symbiosis.png",
+    "quote": "\"The three-day programme was exceptionally well-structured and insightful. The sessions provided our faculty members with deep practical knowledge and a fresh perspective on the evolving role of AI in the business landscape. The expertise shared by your team has tremendously benefited our academic community, equipping them with industry-relevant tools and methodologies that will undoubtedly enhance our curriculum delivery.\"",
+    "name": "Dr. Dhanya Pramod",
+    "title": "Director, Symbiosis Centre for Information Technology (SCIT), Pune",
+    "letterUrl": "testimonial-letter/Symbiosis.png"
+  },
+  {
+    "logo": "client-logos/IMI.png",
+    "quote": "\"For the last three years insAnalytics has been engaged by IMI Kolkata to train our PGDM students on Data Analytics, Visual Analytics, RPA, Digital Marketing, and Sentiment Analysis. The knowledge and skills enhanced through these workshops have been evidenced during final presentations and corroborated by feedback from industry.\"",
+    "name": "Dr. Mohua Banerjee",
+    "title": "Dean – Placements & Professor of Marketing, IMI Kolkata",
+    "letterUrl": "testimonial-letter/IMI.png"
+  },
+  {
+    "logo": "client-logos/VNIT.jpg",
+    "quote": "\"insAnalytics brought very senior industry experts to conduct this workshop. Senior Industry Professionals, Research Scholars, and Faculty members across the country attended and found it to be value adding and relevant. insAnalytics has created a mark in our institute and we will be happy to engage them for any future need.\"",
+    "name": "Dr. Abhay Gandhi",
+    "title": "Professor & HoD, Dept. of Electronics & Communication Engg., VNIT Nagpur",
+    "letterUrl": "testimonial-letter/VNIT.png"
+  },
+  {
+    "logo": "client-logos/AIM.webp",
+    "quote": "\"Training sessions conducted by insAnalytics' esteemed faculty — comprising industry experts with decades of domain knowledge — led to a significant enhancement in skill levels and domain awareness of our students, exemplified by the strong 100% placement experienced by AIM Kolkata participants.\"",
+    "name": "Maj Gen (Dr.) SC Jain, VSM (Retd.)",
+    "title": "Director, Army Institute of Management, Kolkata",
+    "letterUrl": "testimonial-letter/AIM.png"
+  },
+  {
+    "logo": "client-logos/Heritage.png",
+    "quote": "\"insAnalytics has been selected as one of our preferred external knowledge partners. Students who have undergone training conducted by insAnalytics on Data Analytics, Big Data, Machine Learning, and Data Mining are not only conceptually stronger but also competent enough to take up projects in these niche areas — helping them secure admissions to premier institutes and excel in campus placements in these emerging domains.\"",
+    "name": "Dr. Subhashis Majumder",
+    "title": "Professor & HoD, CSE Dept. | Dean, UG Programme, Heritage Institute of Technology, Kolkata",
+    "letterUrl": "testimonial-letter/Heritage.png"
+  },
+  {
+    "logo": "client-logos/Assam.png",
+    "quote": "\"Working in the domain of Machine Learning and Analytics at insAnalytics is the most beneficial experience of our students. They have gained professional connections, career skills, and new technological knowledge — and have encouraged us to continue this association.\"",
+    "name": "Dr. Tapodhir Acharjee",
+    "title": "Head, Dept. of Computer Science & Engineering, Assam University, Silchar",
+    "letterUrl": "testimonial-letter/Assam.png"
+  }
+]

@@ -1,0 +1,68 @@
+<section class="section case-studies-header">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="accent-rule"></div>
+      <span class="section-label">CASE STUDIES</span>
+      <h2 class="h2-section">Proof Points, Across Industries</h2>
+    </div>
+    <div class="case-studies__filter-group fade-up">
+      <span class="case-studies__filter-label">Industry</span>
+      <div class="case-studies__filters">
+        <button
+          class="case-studies__chip"
+          *ngFor="let industry of industries"
+          [class.active]="activeIndustry === industry"
+          (click)="setIndustry(industry)">
+          {{ industry }}
+        </button>
+      </div>
+    </div>
+
+    <div class="case-studies__filter-group fade-up">
+      <span class="case-studies__filter-label">Technology</span>
+      <div class="case-studies__filters">
+        <button
+          class="case-studies__chip"
+          *ngFor="let technology of technologies"
+          [class.active]="activeTechnology === technology"
+          (click)="setTechnology(technology)">
+          {{ technology }}
+        </button>
+      </div>
+    </div>
+
+    <button
+      class="case-studies__chip case-studies__chip--clear fade-up"
+      *ngIf="activeIndustry || activeTechnology"
+      (click)="clearFilters()">
+      Clear filters
+    </button>
+  </div>
+</section>
+
+<section class="section case-studies-grid">
+  <div class="container">
+    <div class="case-studies__grid">
+      <a class="case-studies__card fade-up" *ngFor="let cs of pagedCases" [routerLink]="['/case-studies', cs.slug]">
+        <div class="case-studies__media" [class.case-studies__media--placeholder]="!cs.image">
+          <img [src]="cs.image || 'logo.png'" alt="" class="case-studies__image">
+        </div>
+        <div class="case-studies__body">
+          <span class="case-studies__tag">{{ cs.industries.join(', ') }} &middot; {{ cs.geography }}</span>
+          <h3 class="h3-card">{{ cs.headline }}</h3>
+          <p class="body-text">{{ cs.summary }}</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="case-studies__pagination" *ngIf="totalPages > 1">
+      <button
+        class="case-studies__page"
+        *ngFor="let page of pages"
+        [class.active]="page === currentPage"
+        (click)="goToPage(page)">
+        {{ page }}
+      </button>
+    </div>
+  </div>
+</section>

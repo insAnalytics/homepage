@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>InsAnalytics — Website Wireframe</title>
+<style>
+  :root{
+    --ink:#2b2b28; --sub:#6b6b66; --line:#9c9c96; --line-soft:#c9c9c2;
+    --page:#eeede8; --block:#ffffff; --tag:#e5e4de; --accent:#3c5a99;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--page); font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif; color:var(--ink);}
+  .topbar{position:sticky; top:0; z-index:50; background:#1f1f1d; color:#fff; padding:14px 24px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
+  .topbar h1{font-size:15px; font-weight:600; margin:0; letter-spacing:.02em;}
+  .topbar .sub{font-size:12px; color:#b7b6b0; margin-right:auto;}
+  .tabs{display:flex; gap:6px; flex-wrap:wrap;}
+  .tab{background:transparent; border:1px solid #4a4a46; color:#d8d7d1; font-size:12.5px; padding:7px 12px; border-radius:5px; cursor:pointer;}
+  .tab.active{background:#fff; color:#1f1f1d; border-color:#fff; font-weight:600;}
+  .page{display:none; max-width:1180px; margin:28px auto 80px; padding:0 20px;}
+  .page.active{display:block;}
+  .page-label{font-size:11px; text-transform:uppercase; letter-spacing:.12em; color:var(--sub); margin-bottom:6px;}
+  .page-title{font-size:22px; font-weight:700; margin:0 0 4px;}
+  .page-goal{font-size:13px; color:var(--sub); margin:0 0 22px; max-width:720px;}
+  .block{background:var(--block); border:1.5px dashed var(--line); border-radius:6px; padding:16px 18px; position:relative; margin-bottom:14px;}
+  .block-label{position:absolute; top:-10px; left:12px; background:var(--tag); border:1px solid var(--line-soft); font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--sub); padding:2px 8px; border-radius:3px; font-weight:600;}
+  .block-content{font-size:13px; color:#444; line-height:1.55; margin-top:6px;}
+  .block-content ul{margin:6px 0 0; padding-left:18px;}
+  .block-content li{margin-bottom:3px;}
+  .placeholder{border:1px dashed var(--line-soft); background:#f6f6f3; border-radius:4px; padding:8px 10px; font-size:12px; color:var(--sub); font-style:italic; margin-top:8px;}
+  .row{display:grid; gap:14px;}
+  .row-2{grid-template-columns:1fr 1fr;}
+  .row-3{grid-template-columns:1fr 1fr 1fr;}
+  .row-4{grid-template-columns:1fr 1fr 1fr 1fr;}
+  .row-6{grid-template-columns:repeat(6,1fr);}
+  .navmock{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+  .navmock .logo{font-weight:700; font-size:13px; border:1px solid var(--line-soft); padding:4px 10px; border-radius:4px;}
+  .navmock .links{display:flex; gap:14px; font-size:12px; color:#555;}
+  .navmock .cta{border:1px solid var(--accent); color:var(--accent); font-size:12px; padding:5px 12px; border-radius:4px; font-weight:600;}
+  .imgph{background:repeating-linear-gradient(45deg,#eceae3,#eceae3 8px,#e2e0d8 8px,#e2e0d8 16px); border:1px solid var(--line-soft); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--sub); font-size:11px; text-align:center; padding:10px;}
+  .stat{text-align:center; padding:10px 6px;}
+  .stat .num{font-size:20px; font-weight:700;}
+  .stat .lbl{font-size:10.5px; color:var(--sub); margin-top:2px;}
+  .card{border:1px solid var(--line-soft); border-radius:5px; padding:12px; background:#fbfbf9;}
+  .card h4{font-size:12.5px; margin:0 0 4px;}
+  .card p{font-size:11.5px; color:var(--sub); margin:0;}
+  .badge{display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); border:1px solid var(--accent); padding:2px 6px; border-radius:3px; margin-bottom:6px;}
+  .notes{background:#fbfaf5; border:1px solid var(--line-soft); border-radius:6px; padding:14px 16px; margin-top:22px;}
+  .notes h3{font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--sub); margin:0 0 8px;}
+  .notes ul{margin:0; padding-left:18px; font-size:12.5px; color:#444; line-height:1.6;}
+  .foot-mock{border:1px solid var(--line-soft); border-radius:5px; padding:14px; background:#f6f6f3; font-size:11px; color:var(--sub);}
+  .foot-cols{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:12px;}
+  .divider-label{font-size:10.5px; color:var(--sub); text-transform:uppercase; letter-spacing:.08em; margin:20px 0 8px;}
+  @media (max-width:760px){ .row-2,.row-3,.row-4,.row-6,.foot-cols{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>InsAnalytics — website wireframe</h1>
+  <span class="sub">Lo-fi skeleton · 6 core pages</span>
+  <div class="tabs" id="tabs"></div>
+</div>
+
+<!-- ================= HOME ================= -->
+<div class="page active" data-page="home">
+  <div class="page-label">Page 1 of 6</div>
+  <h2 class="page-title">Home</h2>
+  <p class="page-goal">First impression for industry/corporate visitors (manufacturing, BFSI, retail, energy). Job: prove credibility fast, then route each visitor type to the right next page.</p>
+
+  <div class="block"><span class="block-label">Nav</span>
+    <div class="navmock">
+      <div class="logo">InsAnalytics</div>
+      <div class="links"><span>Capabilities</span><span>Case studies</span><span>Insights &amp; news</span><span>About</span><span>Contact</span></div>
+      <div class="cta">Talk to us →</div>
+    </div>
+  </div>
+
+  <div class="block"><span class="block-label">Hero</span>
+    <div class="row row-2">
+      <div>
+        <div class="block-content">
+          <b>Eyebrow:</b> Insights. Through Analytics.<br>
+          <b>Headline (kept from current site):</b> "Turning Data Into Strategic Advantage"<br>
+          <b>Subhead — revised to lead with industry:</b> "InsAnalytics is a niche, boutique AI &amp; Analytics firm delivering AI-powered consulting, R&amp;D, product development and corporate training — trusted across manufacturing, BFSI and beyond."<br>
+          <b>Primary CTA:</b> "Get in touch" · <b>Secondary CTA:</b> "See our work"
+        </div>
+      </div>
+      <div class="imgph" style="min-height:120px;">hero visual — data/manufacturing motif, not stock office photo</div>
+    </div>
+    <div class="placeholder">Current hero copy is strong and stays — main change is routing the subhead toward industry credibility instead of leaving it generic, and giving the page somewhere to go beyond "Get in touch" (today's single-page site has no deeper navigation).</div>
+  </div>
+
+  <div class="block"><span class="block-label">Trust strip (real numbers, kept as-is)</span>
+    <div class="row row-4">
+      <div class="stat"><div class="num">30+</div><div class="lbl">years avg. consulting experience</div></div>
+      <div class="stat"><div class="num">11</div><div class="lbl">domain experts</div></div>
+      <div class="stat"><div class="num">10+</div><div class="lbl">industries served</div></div>
+      <div class="stat"><div class="num">4</div><div class="lbl">service lines</div></div>
+    </div>
+    <div class="placeholder">Logo bar beneath (kept): IIT · IIM · ISI · NVIDIA · IBM · TCS · Barclays · Morgan Stanley · Credit Suisse · J.P. Morgan · DRDO — this is a strong credibility signal already; just needs to survive the redesign untouched.</div>
+  </div>
+
+  <div class="block"><span class="block-label">Outcomes overview (revised — leads with impact, not delivery mode)</span>
+    <div class="row row-4">
+      <div class="card"><h4>Asset &amp; operations intelligence</h4><p>Predictive maintenance, reliability</p></div>
+      <div class="card"><h4>Supply chain &amp; demand</h4><p>Forecasting, inventory optimization</p></div>
+      <div class="card"><h4>Cost, process &amp; efficiency</h4><p>Six Sigma–driven yield &amp; waste</p></div>
+      <div class="card"><h4>Risk, compliance &amp; ESG</h4><p>Credit, fraud, CBAM/export</p></div>
+    </div>
+    <div class="row row-3" style="margin-top:12px;">
+      <div class="card"><h4>Growth &amp; commercial analytics</h4><p>Marketing budget impact, segments</p></div>
+      <div class="card"><h4>Digital transformation &amp; AI platforms</h4><p>GenAI, dashboards, AI hardware</p></div>
+      <div class="card"><h4>Capability building &amp; training</h4><p>Executive &amp; technical programs</p></div>
+    </div>
+    <div class="placeholder">These 7 outcome pillars replace the earlier 4 delivery-mode cards (Consulting/R&amp;D/Product/Training) — matches the restructured Capabilities page. Each card here links to its pillar section there.</div>
+  </div>
+
+  <div class="block"><span class="block-label">Featured case study</span>
+    <div class="row row-2">
+      <div class="imgph" style="min-height:90px;">client/industry visual</div>
+      <div class="block-content">
+        <span class="badge">Automotive · Europe</span><br>
+        <b>Headline result</b> (e.g. reduced warranty reserve error by X%)<br>
+        One-line challenge → approach → result summary. Link: "Read the full case study →"
+      </div>
+    </div>
+  </div>
+
+  <div class="block"><span class="block-label">Recent developments strip</span>
+    <div class="row row-3">
+      <div class="card"><span class="badge">News</span><h4>Recent project / milestone</h4><p>Date · 1-line summary</p></div>
+      <div class="card"><span class="badge">Partnership</span><h4>Strategic partnership announcement</h4><p>Date · 1-line summary</p></div>
+      <div class="card"><span class="badge">Speaking</span><h4>Upcoming / recent event</h4><p>Date · event name · speaker</p></div>
+    </div>
+    <div class="placeholder">Pulls the 3 most recent items from the Insights &amp; News page — kept fresh without manual homepage edits.</div>
+  </div>
+
+  <div class="block"><span class="block-label">Leadership teaser</span>
+    <div class="row row-3">
+      <div class="card"><h4>Dr. Goutam Das</h4><p>Founder &amp; Principal Data Scientist — ex-IBM, ex-TCS, Six Sigma MBB</p></div>
+      <div class="card"><h4>Dr. Ayan Chatterjee</h4><p>CTO — GPU architecture at NVIDIA, AI at AstraZeneca</p></div>
+      <div class="card">+ link<br><p style="margin-top:4px;">"Meet the full team →"</p></div>
+    </div>
+  </div>
+
+  <div class="block"><span class="block-label">CTA banner</span>
+    <div class="block-content" style="text-align:center;">"Let's talk about your AI roadmap." — [Talk to us] [Download capability overview]</div>
+  </div>
+
+  <div class="block"><span class="block-label">Footer</span>
+    <div class="foot-mock">
+      <div class="foot-cols">
+        <div><b>InsAnalytics</b><br>Insights. Through Analytics.<br>address / region note</div>
+        <div>Capabilities<br>Case studies<br>Insights &amp; news</div>
+        <div>About<br>Careers<br>Contact</div>
+        <div>Email signup<br>LinkedIn / social<br>© year</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <h3>Notes — Home</h3>
+    <ul>
+      <li>Current site is a single "coming soon" page with no navigation past "Get in touch" — this wireframe keeps its real copy, stats, and logo bar, and gives them somewhere to lead beyond one scroll.</li>
+      <li>Keep the "recent developments" strip templated so it auto-refreshes from the Insights page rather than needing a homepage edit each time — this section doesn't exist on the current site at all.</li>
+      <li>Avoid generic stock photography — use real project imagery, diagrams, or abstracted data visuals instead.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= CAPABILITIES ================= -->
+<div class="page" data-page="capabilities">
+  <div class="page-label">Page 2 of 6</div>
+  <h2 class="page-title">Capabilities / Solutions</h2>
+  <p class="page-goal">Job: let a technical or business buyer self-serve into the specific problem they have, by industry or by technology.</p>
+
+  <div class="block"><span class="block-label">Page header</span>
+    <div class="block-content">Title: "Outcomes we deliver" (replaces "Four ways we create impact" — leads with the prospect's problem, not your delivery model). Subhead: one line naming the shift from generic service categories to what each pillar solves. Filter row: <b>by business function</b> (below) — cross-cuts every pillar.</div>
+  </div>
+
+  <div class="block"><span class="block-label">Outcome pillars (7, fixed — this is the new top-level nav)</span>
+    <div class="row row-4">
+      <div class="card"><h4>Asset &amp; operations intelligence</h4><p>Predictive maintenance, reliability, precision/quality</p></div>
+      <div class="card"><h4>Supply chain &amp; demand intelligence</h4><p>Forecasting, inventory optimization</p></div>
+      <div class="card"><h4>Cost, process &amp; efficiency</h4><p>Six Sigma–driven yield &amp; waste reduction</p></div>
+      <div class="card"><h4>Risk, compliance &amp; ESG</h4><p>Credit scoring, fraud detection, CBAM/export</p></div>
+    </div>
+    <div class="row row-3" style="margin-top:12px;">
+      <div class="card"><h4>Growth &amp; commercial analytics</h4><p>Marketing budget impact, customer/segment analytics</p></div>
+      <div class="card"><h4>Digital transformation &amp; AI platforms</h4><p>GenAI, BI dashboards, AI-optimized hardware</p></div>
+      <div class="card"><h4>Capability building &amp; training</h4><p>Executive &amp; technical programs — kept as its own pillar per your call, since an L&amp;D buyer thinks differently from an ops buyer</p></div>
+    </div>
+    <div class="placeholder">This 7-pillar set is what stays fixed in the nav regardless of how many solutions you add beneath it — the list-length problem gets solved one level down, not here.</div>
+  </div>
+
+  <div class="block"><span class="block-label">Pillar detail — expanded example: "Asset &amp; operations intelligence"</span>
+    <div class="block-content">
+      Pillar intro line: what this outcome means in plain terms, one sentence.<br><br>
+      <b>Solutions inside this pillar</b> (grid — this is where the list grows, never the nav):
+    </div>
+    <div class="row row-3" style="margin-top:10px;">
+      <div class="card"><h4>Predictive maintenance</h4><p>Failure prediction before breakdown</p><div class="badge" style="margin-top:6px;">Consulting</div></div>
+      <div class="card"><h4>Reliability analytics for high-value assets</h4><p>Warranty reserve &amp; failure modeling</p><div class="badge" style="margin-top:6px;">Consulting + R&amp;D</div></div>
+      <div class="card"><h4>Precision &amp; quality</h4><p>Computer-vision defect detection</p><div class="badge" style="margin-top:6px;">Product development</div></div>
+    </div>
+    <div class="placeholder">Each solution card carries a small delivery-mode tag (Consulting / R&amp;D / Product development / Training / BOT) — this is where "how we deliver it" lives now, as metadata, not as the thing a prospect has to navigate by. New solutions get added here freely without ever touching the top nav.</div>
+  </div>
+
+  <div class="block"><span class="block-label">Business function tags (real, from current site — cross-cutting filter)</span>
+    <div class="row row-4">
+      <div class="card" style="text-align:center;"><p>Finance &amp; Accounting</p></div>
+      <div class="card" style="text-align:center;"><p>Corp. Finance &amp; Risk</p></div>
+      <div class="card" style="text-align:center;"><p>Strategy &amp; Marketing</p></div>
+      <div class="card" style="text-align:center;"><p>Sales</p></div>
+      <div class="card" style="text-align:center;"><p>Supply Chain &amp; Logistics</p></div>
+      <div class="card" style="text-align:center;"><p>Operations &amp; Process Excellence</p></div>
+      <div class="card" style="text-align:center;"><p>Human Resources</p></div>
+    </div>
+    <div class="placeholder">E.g. selecting "Strategy &amp; Marketing" would surface "Marketing budget impact assessment" from the Growth pillar and any other tagged solutions, regardless of which pillar they sit in — a second way into the same content for a buyer who thinks by function, not by outcome.</div>
+  </div>
+
+  <div class="block"><span class="block-label">Methodology strip</span>
+    <div class="block-content">"We don't just solve your problems. We build your capability to solve them." — Six Sigma discipline + AI/ML, Build-Operate-Transfer delivery model. Links to About page for full detail. (BOT now lives here as "how we work," not as a pillar a prospect has to browse by.)</div>
+  </div>
+
+  <div class="block"><span class="block-label">Sidebar CTA (sticky on desktop)</span>
+    <div class="block-content">"Not sure which capability fits your problem?" → [Talk to an expert] button, persists as user scrolls.</div>
+  </div>
+
+  <div class="notes">
+    <h3>Notes — Capabilities</h3>
+    <ul>
+      <li>The old structure led with delivery mode (Consulting / R&amp;D / Product / Training) — the new one leads with outcome (predictive maintenance, reliability analytics, marketing budget impact...) and pushes delivery mode down to a small tag. This is the change you asked for.</li>
+      <li>List-length problem is solved structurally: the 7 pillars are fixed and rarely change; individual solutions inside each pillar can grow to 20+ over time without the nav ever getting longer.</li>
+      <li>Training stays a standalone pillar rather than folding into Digital Transformation, per your call — different buyer, different budget line, deserves its own front door.</li>
+      <li>Every solution card still carries the Requirement → Approach → Business benefit structure from your corporate deck — only the framing and grouping changed, not the underlying content.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= CASE STUDIES ================= -->
+<div class="page" data-page="cases">
+  <div class="page-label">Page 3 of 6</div>
+  <h2 class="page-title">Case studies / work</h2>
+  <p class="page-goal">Job: proof, not claims. This is the page a skeptical prospect checks before a meeting.</p>
+
+  <div class="block"><span class="block-label">Page header + filters</span>
+    <div class="block-content">Title: "Proof points, across industries." Filter chips: Automotive · Healthcare · Retail · BFSI · Technology · ESG/Compliance</div>
+  </div>
+
+  <div class="block"><span class="block-label">Case study grid</span>
+    <div class="row row-3">
+      <div class="card"><span class="badge">Automotive · Europe</span><h4>Reliability &amp; warranty reserve estimation</h4><p>Kaplan-Meier + Weibull survival modeling</p></div>
+      <div class="card"><span class="badge">Healthcare · USA/India</span><h4>AI-powered MRI diagnosis</h4><p>95%+ accuracy, low-compute vision model</p></div>
+      <div class="card"><span class="badge">Retail · USA</span><h4>SKU-level inventory optimization</h4><p>Demand forecasting, EOQ modeling</p></div>
+      <div class="card"><span class="badge">Automotive · Japan</span><h4>Segment-level sales forecasting</h4><p>Macro + dealer + sentiment signals</p></div>
+      <div class="card"><span class="badge">AI hardware · USA</span><h4>GPU power-performance optimization</h4><p>NVIDIA / Tesla-deployed chip design</p></div>
+      <div class="card"><span class="badge">BFSI · India</span><h4>Creditworthiness scoring model</h4><p>86-variable model, CRISP-DM</p></div>
+    </div>
+    <div class="placeholder">Each card → dedicated case study detail page (template below). "Load more" or pagination beneath grid.</div>
+  </div>
+
+  <div class="block"><span class="block-label">Case study detail template (click-through)</span>
+    <div class="block-content">
+      <b>Header:</b> client/industry tag, headline result<br>
+      <b>Challenge</b> — the business problem in plain terms<br>
+      <b>Approach</b> — method, without needing a data-science background to follow<br>
+      <b>Result</b> — quantified outcome, callout stat<br>
+      <b>Relevance note</b> — "directly portable to…" (as in your current deck) connecting it to a prospect's own sector<br>
+      Optional: client quote/testimonial block
+    </div>
+  </div>
+
+  <div class="block"><span class="block-label">Client voices (real, from current site)</span>
+    <div class="row row-2">
+      <div class="card">
+        <h4>Numerify — San Jose, USA</h4>
+        <p>"insAnalytics built and operationalized the models for us... deployed at customers including a few Fortune 25 customers. Great technical competence, but more importantly helped us frame the solution in a way that adds true value."</p>
+      </div>
+      <div class="card">
+        <h4>mJunction — Amit Khan, CIO</h4>
+        <p>"Tea Auction Price Prediction — based on which mJunction selected us out of many for a subsequent visual analytics assignment — and a Tableau-based dashboard for our loyalty program."</p>
+      </div>
+    </div>
+    <div class="placeholder">Kept verbatim from current site, with logo + "view testimonial letter" link preserved. These sit better here, next to the case studies they validate, than isolated on the homepage.</div>
+  </div>
+
+  <div class="notes">
+    <h3>Notes — Case studies</h3>
+    <ul>
+      <li>The "directly portable to…" framing from your existing deck is a strong differentiator — carry it onto every case study detail page, not just the roundtable deck.</li>
+      <li>Where a client can't be named, keep the industry + geography tag (as your corporate deck already does) rather than dropping the story.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= INSIGHTS & NEWS ================= -->
+<div class="page" data-page="insights">
+  <div class="page-label">Page 4 of 6</div>
+  <h2 class="page-title">Insights &amp; news</h2>
+  <p class="page-goal">Job: signal that InsAnalytics is active and current — recent work, partnerships, and where its experts are speaking.</p>
+
+  <div class="block"><span class="block-label">Page header + tabs</span>
+    <div class="block-content">Three sub-tabs: <b>Recent developments</b> · <b>Partnerships</b> · <b>Speaking &amp; events</b> (all feed one shared list, filterable — not three separate CMSs).</div>
+  </div>
+
+  <div class="block"><span class="block-label">Upcoming / featured event</span>
+    <div class="row row-2">
+      <div class="imgph" style="min-height:70px;">event/venue image</div>
+      <div class="block-content"><span class="badge">Speaking</span> Event name, date, location. "Dr. Goutam Das speaking on…" [Add to calendar] [Read more]</div>
+    </div>
+  </div>
+
+  <div class="block"><span class="block-label">Article / update list</span>
+    <div class="row row-3">
+      <div class="card"><span class="badge">Partnership</span><h4>New alliance / MoU announcement</h4><p>Date</p></div>
+      <div class="card"><span class="badge">Project</span><h4>Project delivered / milestone</h4><p>Date</p></div>
+      <div class="card"><span class="badge">Speaking</span><h4>Past conference recap</h4><p>Date</p></div>
+    </div>
+    <div class="placeholder">Chronological list below the grid, filterable by tag; each opens a short article page (reuses case-study template where relevant).</div>
+  </div>
+
+  <div class="block"><span class="block-label">Newsletter signup</span>
+    <div class="block-content">"Get InsAnalytics updates" — email field + subscribe. Low-commitment way to keep prospects warm between meetings.</div>
+  </div>
+
+  <div class="notes">
+    <h3>Notes — Insights &amp; news</h3>
+    <ul>
+      <li>This page is what makes the homepage's "recent developments" strip possible — build it first, homepage pulls from it.</li>
+      <li>Even a modest cadence (one item a month) reads as active; an empty or stale page reads worse than not having one.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<div class="page" data-page="about">
+  <div class="page-label">Page 5 of 6</div>
+  <h2 class="page-title">About / team</h2>
+  <p class="page-goal">Job: convert credibility into trust — who's actually doing the work, and how engagements run.</p>
+
+  <div class="block"><span class="block-label">Story / mission</span>
+    <div class="block-content">Short founding narrative + mission line — "Insights. Through Analytics." expanded into 2-3 sentences of point of view.</div>
+  </div>
+
+  <div class="block"><span class="block-label">Leadership &amp; advisor grid (full roster — carousel on current site, grid here)</span>
+    <div class="row row-3">
+      <div class="card"><h4>Dr. Goutam Das</h4><p>Founder &amp; Principal Data Scientist — 30+ yrs, ex-IBM, ex-TCS, Chief Data Scientist at Ministry of Power</p></div>
+      <div class="card"><h4>Prof. (Dr.) B B Chakraborty</h4><p>Advisor — 40+ yrs, Senior Professor &amp; Director IIM Calcutta/Ranchi; consultant to UN, HSBC, Deutsche Bank</p></div>
+      <div class="card"><h4>Dr. Nidhan Choudhary</h4><p>Advisor — 25+ yrs quantitative finance; Barclays Capital &amp; Morgan Stanley NY; professor at Michigan &amp; Case Western</p></div>
+      <div class="card"><h4>Dr. Ayan Chatterjee</h4><p>CTO — GPU architecture at NVIDIA, AI platforms at AstraZeneca</p></div>
+      <div class="card"><h4>Mr. Jayanta Adhikari</h4><p>Chief Consultant, Financial Analytics</p></div>
+      <div class="card"><h4>Mr. Pavan Goyal</h4><p>Consultant, Financial Analytics</p></div>
+    </div>
+    <div class="placeholder">Full 6-person roster confirmed public. First 3 carry over from the current site's carousel (keep LinkedIn icons); last 3 are new additions from the corporate deck, now cleared to publish.</div>
+  </div>
+
+  <div class="block"><span class="block-label">Training testimonials (real, from current site)</span>
+    <div class="row row-2">
+      <div class="card">
+        <h4>Manisha Kapoor — Research Analyst, McKinsey &amp; Co.</h4>
+        <p>"Talented and industry-experienced professionals who trained us on Business Analytics and Predictive Modeling... a very educational journey."</p>
+      </div>
+      <div class="card">
+        <h4>Debarshi Sanyal — Process Engineer, Worley Parsons, Oman ★★★★★</h4>
+        <p>"A wonderful organisation to learn with... they take personal care to guide as per industry-specific domain in data analytics."</p>
+      </div>
+    </div>
+    <div class="placeholder">These support the Corporate Training service line specifically — consider placing them near that section on Capabilities as well as here.</div>
+  </div>
+
+  <div class="block"><span class="block-label">Methodology / how we work</span>
+    <div class="row row-2">
+      <div class="block-content"><b>Six Sigma + AI discipline</b> — statistical rigor behind every model, not automation alone.</div>
+      <div class="block-content"><b>Build-Operate-Transfer</b> — 4-step model: assess gaps → train &amp; co-build → supervised handoff → full ownership transfer.</div>
+    </div>
+  </div>
+
+  <div class="block"><span class="block-label">Careers teaser</span>
+    <div class="block-content">One line + link: "Join the team →" (even a lightweight page helps recruiting credibility).</div>
+  </div>
+
+  <div class="notes">
+    <h3>Notes — About</h3>
+    <ul>
+      <li>Named leadership with verifiable credentials (NVIDIA/Tesla, AstraZeneca, GE Six Sigma) is a real differentiator for a boutique firm — don't undersell it with a generic "our team" grid.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="page" data-page="contact">
+  <div class="page-label">Page 6 of 6</div>
+  <h2 class="page-title">Contact</h2>
+  <p class="page-goal">Job: remove friction to the next step, for both a quick question and a serious engagement inquiry.</p>
+
+  <div class="block"><span class="block-label">Header (real copy, kept)</span>
+    <div class="block-content">"Let's start a conversation." — "Whether you're exploring a consulting engagement, an R&amp;D partnership, or a training program — we'd love to hear from you."<br>
+    <span class="placeholder" style="display:block; margin-top:8px;">Turn those 3 phrases into selectable tags on the form (Consulting / R&amp;D / Training) — currently just a sentence, easy low-cost upgrade to route inquiries.</span></div>
+  </div>
+
+  <div class="block"><span class="block-label">Contact form</span>
+    <div class="block-content">Fields: Name, Company, Email, Phone, Engagement type (Consulting / R&amp;D / Product dev / Training — tags above), Message. Single primary button: "Send".</div>
+  </div>
+
+  <div class="row row-2">
+    <div class="block"><span class="block-label">Offices (real, from current site)</span>
+      <div class="block-content">
+        <b>Mumbai</b> — #912 Plot-B, Lodha Supremus, Tower 2, Lodha Biz District, Kolshet Road, Thane, Mumbai – 400607<br><br>
+        <b>Kolkata</b> — Calcutta Greens Commercial Complex, BC-69, In Between Hiland Park &amp; Ambuja, Kolkata – 700075 (Mon–Fri)
+      </div>
+    </div>
+    <div class="block"><span class="block-label">Direct contacts (real)</span>
+      <div class="block-content">
+        gm@insanalytics.com<br>
+        +91 76040 88772 · +91 90075 36560<br><br>
+        <span class="placeholder" style="display:block;">Consider adding named contacts here (Dr. Das, Ms. Saha per corporate deck) alongside the general inbox — a named person converts better than "gm@".</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="block"><span class="block-label">Book time directly (new)</span>
+    <div class="block-content">Embedded scheduler (e.g. "Book a 30-min call") — skips email back-and-forth for warm prospects; doesn't exist on the current site.</div>
+  </div>
+
+  <div class="notes">
+    <h3>Notes — Contact</h3>
+    <ul>
+      <li>A booking widget matters more than usual here — inbound prospects from a govt/industry roundtable are warm leads who'd rather grab a slot than wait for an email reply.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const pages = [
+    {id:'home', label:'Home'},
+    {id:'capabilities', label:'Capabilities'},
+    {id:'cases', label:'Case studies'},
+    {id:'insights', label:'Insights & news'},
+    {id:'about', label:'About'},
+    {id:'contact', label:'Contact'},
+  ];
+  const tabsEl = document.getElementById('tabs');
+  pages.forEach((p,i)=>{
+    const b = document.createElement('button');
+    b.className = 'tab' + (i===0?' active':'');
+    b.textContent = p.label;
+    b.onclick = () => {
+      document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.page').forEach(pg=>pg.classList.remove('active'));
+      b.classList.add('active');
+      document.querySelector('.page[data-page="'+p.id+'"]').classList.add('active');
+      window.scrollTo({top:0, behavior:'instant'});
+    };
+    tabsEl.appendChild(b);
+  });
+</script>
+
+</body>
+</html>

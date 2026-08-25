@@ -9,35 +9,17 @@
 
     <div class="contact__layout">
       <div class="contact__offices">
-        <div class="contact__office-card fade-up">
+        <div class="contact__office-card fade-up" *ngFor="let office of offices">
           <div class="contact__office-header">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#3DB84B" stroke-width="1.5"/>
               <circle cx="12" cy="9" r="2.5" stroke="#3DB84B" stroke-width="1.5"/>
             </svg>
-            <h3 class="contact__office-name">Mumbai</h3>
+            <h3 class="contact__office-name">{{ office.name }}</h3>
           </div>
           <address class="contact__address">
-            InsAnalytics<br/>
-            #912 Plot-B, Lodha Supremus – Tower 2<br/>
-            Lodha Biz District, Kolshet Road<br/>
-            Thane, Mumbai – 400607
-          </address>
-        </div>
-
-        <div class="contact__office-card fade-up">
-          <div class="contact__office-header">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#3DB84B" stroke-width="1.5"/>
-              <circle cx="12" cy="9" r="2.5" stroke="#3DB84B" stroke-width="1.5"/>
-            </svg>
-            <h3 class="contact__office-name">Kolkata Office</h3>
-          </div>
-          <address class="contact__address">
-            Calcutta Greens Commercial Complex<br/>
-            BC-69, In Between Hiland Park &amp; Ambuja<br/>
-            Kolkata – 700075<br/>
-            <span class="contact__hours">Mon–Fri</span>
+            <ng-container *ngFor="let line of office.addressLines; let last = last">{{ line }}<br *ngIf="!last || office.hours"/></ng-container>
+            <span class="contact__hours" *ngIf="office.hours">{{ office.hours }}</span>
           </address>
         </div>
       </div>
@@ -48,8 +30,8 @@
             <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.86 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012.77 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.14a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="#3DB84B" stroke-width="1.5"/>
           </svg>
           <div>
+            <a href="tel:+917604088772" class="contact__link">+91 76040 88772</a>
             <a href="tel:+919007536560" class="contact__link">+91 90075 36560</a>
-            <a href="tel:+917004861454" class="contact__link">+91 70048 61454</a>
           </div>
         </div>
         <div class="contact__detail-item">

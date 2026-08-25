@@ -1,0 +1,69 @@
+<section class="section case-study-detail" *ngIf="caseStudy; else notFoundBlock">
+  <div class="container">
+    <a routerLink="/case-studies" class="case-study-detail__back">&larr; All case studies</a>
+    <span class="case-study-detail__tag">{{ caseStudy.industries.join(', ') }} &middot; {{ caseStudy.geography }}</span>
+    <h1 class="h1-hero">{{ caseStudy.headline }}</h1>
+
+    <div class="case-study-detail__tech-tags" *ngIf="caseStudy.technologies.length">
+      <span class="case-study-detail__tech-tag" *ngFor="let tech of caseStudy.technologies">{{ tech }}</span>
+    </div>
+
+    <div class="case-study-detail__hero-media" [class.case-study-detail__hero-media--placeholder]="!caseStudy.image">
+      <img [src]="caseStudy.image || 'logo.png'" alt="" class="case-study-detail__hero-image">
+    </div>
+
+    <div class="case-study-detail__body">
+      <ng-container *ngFor="let block of caseStudy.body">
+        <ng-container [ngSwitch]="block._type">
+
+          <ng-container *ngSwitchCase="'block'">
+            <h2 *ngIf="$any(block).style === 'h2'" class="h3-card case-study-detail__heading" [innerHTML]="renderText($any(block))"></h2>
+            <h3 *ngIf="$any(block).style === 'h3'" class="case-study-detail__subheading" [innerHTML]="renderText($any(block))"></h3>
+            <p *ngIf="!$any(block).style || $any(block).style === 'normal'" class="body-text case-study-detail__paragraph" [innerHTML]="renderText($any(block))"></p>
+          </ng-container>
+
+          <div *ngSwitchCase="'calloutBlock'" class="case-study-detail__callout">
+            <h2 class="h3-card">{{ $any(block).heading }}</h2>
+            <p class="body-text">{{ $any(block).text }}</p>
+          </div>
+
+          <figure *ngSwitchCase="'image'" class="case-study-detail__figure">
+            <img [src]="$any(block).url" [alt]="$any(block).caption || ''">
+            <figcaption *ngIf="$any(block).caption" class="body-text">{{ $any(block).caption }}</figcaption>
+          </figure>
+
+          <div *ngSwitchCase="'pdfBlock'" class="case-study-detail__pdf">
+            <p *ngIf="$any(block).label" class="case-study-detail__pdf-label">{{ $any(block).label }}</p>
+            <div class="case-study-detail__pdf-frame">
+              <iframe [src]="safeUrl($any(block).url)" title="Embedded PDF"></iframe>
+            </div>
+            <a [href]="$any(block).url" target="_blank" rel="noopener noreferrer" class="case-study-detail__pdf-link">Open in a new tab &rarr;</a>
+          </div>
+
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <div class="case-study-detail__team" *ngIf="caseStudy.team?.length">
+      <h2 class="h3-card">Project Team</h2>
+      <div class="case-study-detail__team-grid">
+        <div class="case-study-detail__team-card" *ngFor="let member of caseStudy.team">
+          <img *ngIf="member.photo" [src]="member.photo" [alt]="member.name" class="case-study-detail__team-avatar case-study-detail__team-avatar--photo">
+          <div *ngIf="!member.photo" class="case-study-detail__team-avatar">{{ member.initials }}</div>
+          <div>
+            <h3 class="case-study-detail__team-name">{{ member.name }}</h3>
+            <p class="case-study-detail__team-title">{{ member.title }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #notFoundBlock>
+  <section class="section case-study-detail">
+    <div class="container">
+      <p class="body-text">Case study not found. <a routerLink="/case-studies">Back to all case studies &rarr;</a></p>
+    </div>
+  </section>
+</ng-template>

@@ -9,29 +9,13 @@
       <div class="expertise__column">
         <h3 class="expertise__col-title">Industries</h3>
         <div class="expertise__pills">
-          <span class="expertise__pill">Banking, Financial Services &amp; Insurance (BFSI)</span>
-          <span class="expertise__pill">Power/Energy & Utilities</span>
-          <span class="expertise__pill">Manufacturing</span>
-          <span class="expertise__pill">Automobiles</span>
-          <span class="expertise__pill">Healthcare & medical science</span>
-          <span class="expertise__pill">Insurance</span>
-          <span class="expertise__pill">Retail &amp; Consumer Products</span>
-          <span class="expertise__pill">Telecommunications</span>
-          <span class="expertise__pill">Media &amp; Entertainment</span>
-          <span class="expertise__pill">Travel &amp; Hospitality</span>
-          <span class="expertise__pill">Government &amp; Public Sector</span>
+          <span class="expertise__pill" *ngFor="let industry of industries">{{ industry }}</span>
         </div>
       </div>
       <div class="expertise__column">
         <h3 class="expertise__col-title">Business Functions</h3>
         <div class="expertise__pills">
-          <span class="expertise__pill">Finance &amp; Accounting</span>
-          <span class="expertise__pill">Corporate Finance &amp; Risk Management</span>
-          <span class="expertise__pill">Strategy &amp; Marketing</span>
-          <span class="expertise__pill">Sales</span>
-          <span class="expertise__pill">Supply Chain &amp; Logistics</span>
-          <span class="expertise__pill">Operations &amp; Process Excellence</span>
-          <span class="expertise__pill">Human Resources</span>
+          <span class="expertise__pill" *ngFor="let fn of businessFunctions">{{ fn }}</span>
         </div>
       </div>
     </div>

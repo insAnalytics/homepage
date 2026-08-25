@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npx ng build --configuration production",
+  "outputDirectory": "dist/insanalytics-web/browser",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}

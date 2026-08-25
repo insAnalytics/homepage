@@ -1,0 +1,51 @@
+<section class="section news-detail" *ngIf="newsItem; else notFoundBlock">
+  <div class="container">
+    <a routerLink="/insights" class="news-detail__back">&larr; All insights &amp; news</a>
+    <span class="news-detail__tag">{{ newsItem.category }} &middot; {{ newsItem.date }}</span>
+    <h1 class="h1-hero">{{ newsItem.title }}</h1>
+
+    <div class="news-detail__hero-media" [class.news-detail__hero-media--placeholder]="!newsItem.image">
+      <img [src]="newsItem.image || 'logo.png'" alt="" class="news-detail__hero-image">
+    </div>
+
+    <div class="news-detail__body">
+      <ng-container *ngFor="let block of newsItem.body">
+        <ng-container [ngSwitch]="block._type">
+
+          <ng-container *ngSwitchCase="'block'">
+            <h2 *ngIf="$any(block).style === 'h2'" class="h3-card news-detail__heading" [innerHTML]="renderText($any(block))"></h2>
+            <h3 *ngIf="$any(block).style === 'h3'" class="news-detail__subheading" [innerHTML]="renderText($any(block))"></h3>
+            <p *ngIf="!$any(block).style || $any(block).style === 'normal'" class="body-text news-detail__paragraph" [innerHTML]="renderText($any(block))"></p>
+          </ng-container>
+
+          <div *ngSwitchCase="'calloutBlock'" class="news-detail__callout">
+            <h2 class="h3-card">{{ $any(block).heading }}</h2>
+            <p class="body-text">{{ $any(block).text }}</p>
+          </div>
+
+          <figure *ngSwitchCase="'image'" class="news-detail__figure">
+            <img [src]="$any(block).url" [alt]="$any(block).caption || ''">
+            <figcaption *ngIf="$any(block).caption" class="body-text">{{ $any(block).caption }}</figcaption>
+          </figure>
+
+          <div *ngSwitchCase="'pdfBlock'" class="news-detail__pdf">
+            <p *ngIf="$any(block).label" class="news-detail__pdf-label">{{ $any(block).label }}</p>
+            <div class="news-detail__pdf-frame">
+              <iframe [src]="safeUrl($any(block).url)" title="Embedded PDF"></iframe>
+            </div>
+            <a [href]="$any(block).url" target="_blank" rel="noopener noreferrer" class="news-detail__pdf-link">Open in a new tab &rarr;</a>
+          </div>
+
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<ng-template #notFoundBlock>
+  <section class="section news-detail">
+    <div class="container">
+      <p class="body-text">Update not found. <a routerLink="/insights">Back to Insights &amp; News &rarr;</a></p>
+    </div>
+  </section>
+</ng-template>

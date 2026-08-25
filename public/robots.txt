@@ -1,0 +1,4 @@
+# Preview build — content isn't finished yet. Remove this once ready to go
+# live and indexable, and replace with a real sitemap-referencing robots.txt.
+User-agent: *
+Disallow: /

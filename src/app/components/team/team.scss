@@ -8,6 +8,15 @@
     margin-top: 12px;
   }
 
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $grid-gap;
+
+    @media (max-width: $bp-tablet) { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: $bp-mobile) { grid-template-columns: 1fr; }
+  }
+
   // ── Outer wrapper: arrow | swiper | arrow ─────────────────────
   &__carousel-wrap {
     display: flex;
@@ -75,6 +84,12 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+
+    &--photo {
+      object-fit: cover;
+      object-position: top;
+      background: none;
+    }
   }
 
   &__info {

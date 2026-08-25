@@ -1,0 +1,165 @@
+@import '../../../styles/scss/variables';
+
+.case-studies-header {
+  background: $off-white;
+  padding-bottom: 40px;
+
+  .section-header {
+    margin-bottom: 28px;
+  }
+}
+
+.case-studies-grid {
+  background: $off-white;
+  padding-top: 0;
+}
+
+.case-studies__filter-group {
+  margin-bottom: 16px;
+
+  &:last-of-type { margin-bottom: 0; }
+}
+
+.case-studies__filter-label {
+  display: block;
+  font-family: $font-heading;
+  font-size: 12px;
+  font-weight: 600;
+  color: $mid-grey;
+  margin-bottom: 10px;
+}
+
+.case-studies__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.case-studies__chip--clear {
+  margin-top: 16px;
+}
+
+.case-studies__chip {
+  font-family: $font-heading;
+  font-size: 12.5px;
+  color: $primary;
+  background: $off-white;
+  border: 1px solid $light-grey;
+  border-radius: 20px;
+  padding: 7px 16px;
+  cursor: pointer;
+
+  &.active {
+    background: $primary;
+    color: $white;
+    border-color: $primary;
+  }
+
+  &--clear {
+    background: transparent;
+    border-color: transparent;
+    color: $mid-grey;
+    text-decoration: underline;
+  }
+}
+
+.case-studies__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $grid-gap;
+
+  @media (max-width: $bp-tablet) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: $bp-mobile) { grid-template-columns: 1fr; }
+}
+
+.case-studies__card {
+  display: flex;
+  flex-direction: column;
+  background: $white;
+  border: 1px solid $light-grey;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+// The grid stretches every card in a row to match the tallest one — as a flex
+// column, the media stays a fixed height and the body (flex: 1 below) absorbs
+// that extra height, instead of an unpredictable gap appearing between them.
+.case-studies__media {
+  flex-shrink: 0;
+  height: 140px;
+
+  &--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $off-white;
+    padding: 20px;
+  }
+}
+
+.case-studies__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.case-studies__media--placeholder .case-studies__image {
+  width: 72px;
+  height: auto;
+  object-fit: contain;
+}
+
+.case-studies__body {
+  flex: 1;
+  padding: 24px;
+
+  h3 { margin: 10px 0; }
+}
+
+.case-studies__tag {
+  display: inline-block;
+  font-family: $font-heading;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $accent;
+}
+
+.case-studies__pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 48px;
+}
+
+.case-studies__page {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid $light-grey;
+  background: $white;
+  color: $primary;
+  font-family: $font-heading;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    border-color: $primary;
+  }
+
+  &.active {
+    background: $primary;
+    color: $white;
+    border-color: $primary;
+  }
+}

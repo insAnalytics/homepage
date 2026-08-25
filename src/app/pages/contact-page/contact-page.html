@@ -1,0 +1,50 @@
+<app-contact></app-contact>
+
+<section class="section contact-form-section" *ngIf="!submitted">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="accent-rule"></div>
+      <span class="section-label">TELL US MORE</span>
+      <h2 class="h2-section">What Are You Exploring?</h2>
+    </div>
+
+    <div class="contact-form__tags fade-up">
+      <button
+        class="contact-form__tag"
+        *ngFor="let type of engagementTypes"
+        [class.active]="selectedEngagement === type"
+        (click)="selectEngagement(type)"
+        type="button">
+        {{ type }}
+      </button>
+    </div>
+
+    <form class="contact-form fade-up" (ngSubmit)="onSubmit()">
+      <div class="contact-form__row">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="company" placeholder="Company">
+      </div>
+      <div class="contact-form__row">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="phone" placeholder="Phone">
+      </div>
+      <textarea name="message" placeholder="Message" rows="4"></textarea>
+      <button type="submit" class="btn-primary">Send</button>
+    </form>
+  </div>
+</section>
+
+<section class="section contact-form-section" *ngIf="submitted">
+  <div class="container">
+    <p class="body-text">Thanks — we'll be in touch. (Prototype only — this form isn't wired to email delivery yet; use <a href="mailto:gm@insanalytics.com">gm@insanalytics.com</a> directly in the meantime.)</p>
+  </div>
+</section>
+
+<!-- BOOK TIME DIRECTLY: commented out until a real scheduler (Calendly, etc.) is ready to connect.
+<section class="section contact-booking">
+  <div class="container contact-booking__inner fade-up">
+    <h3 class="h3-card">Book Time Directly</h3>
+    <p class="body-text">[ Placeholder — scheduler integration pending. ] Skip the email back-and-forth and grab a 30-minute slot once this is connected.</p>
+  </div>
+</section>
+-->
