@@ -98,7 +98,9 @@ export class Capabilities implements OnInit, AfterViewInit, OnDestroy {
   // tagging a solution is the only action a content editor needs to take
   // for it to show up here, no separate list to keep in sync.
   get functionTags(): string[] {
-    return [...new Set(this.pillars.flatMap((p) => p.solutions.flatMap((s) => s.functionTags)))];
+    return [...new Set(this.pillars.flatMap((p) => p.solutions.flatMap((s) => s.functionTags)))].sort((a, b) =>
+      a.localeCompare(b)
+    );
   }
 
   toggleExpanded(slug: string): void {

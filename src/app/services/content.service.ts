@@ -148,12 +148,12 @@ export class ContentService {
 
   /** Replaces the old getSiteSettings() — the full canonical list, regardless of whether anything currently references it. */
   getIndustries(): Observable<string[]> {
-    return this.load<string[]>('industries', `*[_type == "industry"].name`);
+    return this.load<string[]>('industries', `*[_type == "industry"] | order(name asc) .name`);
   }
 
   /** Replaces the old getSiteSettings() — the full canonical list, regardless of whether anything currently references it. */
   getBusinessFunctions(): Observable<string[]> {
-    return this.load<string[]>('businessFunctions', `*[_type == "businessFunction"].name`);
+    return this.load<string[]>('businessFunctions', `*[_type == "businessFunction"] | order(name asc) .name`);
   }
 
   private load<T>(cacheKey: string, groq: string): Observable<T> {

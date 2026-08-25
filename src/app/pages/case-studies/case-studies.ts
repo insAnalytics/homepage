@@ -28,11 +28,11 @@ export class CaseStudies implements OnInit {
   }
 
   get industries(): string[] {
-    return [...new Set(this.cases.flatMap((c) => c.industries))];
+    return [...new Set(this.cases.flatMap((c) => c.industries))].sort((a, b) => a.localeCompare(b));
   }
 
   get technologies(): string[] {
-    return [...new Set(this.cases.flatMap((c) => c.technologies))];
+    return [...new Set(this.cases.flatMap((c) => c.technologies))].sort((a, b) => a.localeCompare(b));
   }
 
   // Single-select per axis, AND'd together — up to 4 states: none, industry
