@@ -65,24 +65,6 @@
   </div>
 </section>
 
-<section class="section developments" *ngIf="recentNews.length">
-  <div class="container">
-    <div class="section-header fade-up">
-      <div class="accent-rule"></div>
-      <span class="section-label">STAYING CURRENT</span>
-      <h2 class="h2-section">Recent Developments</h2>
-    </div>
-    <div class="developments__grid">
-      <a class="developments__card fade-up" *ngFor="let item of recentNews" [routerLink]="['/insights', item.slug]">
-        <span class="developments__badge">{{ item.category }}</span>
-        <h3 class="h3-card">{{ item.title }}</h3>
-        <p class="body-text">{{ item.date }} &middot; {{ item.summary }}</p>
-      </a>
-    </div>
-    <a class="developments__more" routerLink="/insights">See all insights &amp; news &rarr;</a>
-  </div>
-</section>
-
 <section class="section leadership-teaser" *ngIf="leadershipTeaser.length">
   <div class="container">
     <div class="section-header fade-up">

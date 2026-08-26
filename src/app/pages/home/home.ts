@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild 
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 import { ContentService } from '../../services/content.service';
-import { CaseStudy, NewsItem, Pillar, TeamMember } from '../../data/models';
+import { CaseStudy, Pillar, TeamMember } from '../../data/models';
 
 @Component({
   selector: 'app-page-home',
@@ -13,7 +13,6 @@ import { CaseStudy, NewsItem, Pillar, TeamMember } from '../../data/models';
 export class Home implements OnInit, OnDestroy {
   pillars: Pillar[] = [];
   featuredCase?: CaseStudy;
-  recentNews: NewsItem[] = [];
   leadershipTeaser: TeamMember[] = [];
 
   @ViewChild('outcomesSwiperEl') outcomesSwiperEl?: ElementRef<HTMLElement>;
@@ -35,10 +34,6 @@ export class Home implements OnInit, OnDestroy {
     });
     this.content.getCaseStudies().subscribe((cases) => {
       this.featuredCase = cases.find((c) => c.featured) ?? cases[0];
-      this.cdr.detectChanges();
-    });
-    this.content.getNews().subscribe((news) => {
-      this.recentNews = news.slice(0, 3);
       this.cdr.detectChanges();
     });
     this.content.getTeam().subscribe((team) => {

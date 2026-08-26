@@ -21,8 +21,6 @@ import { Home } from './pages/home/home';
 import { Capabilities } from './pages/capabilities/capabilities';
 import { CaseStudies } from './pages/case-studies/case-studies';
 import { CaseStudyDetail } from './pages/case-study-detail/case-study-detail';
-import { Insights } from './pages/insights/insights';
-import { NewsDetail } from './pages/news-detail/news-detail';
 import { About } from './pages/about/about';
 import { ContactPage } from './pages/contact-page/contact-page';
 
@@ -43,8 +41,6 @@ import { ContactPage } from './pages/contact-page/contact-page';
     Capabilities,
     CaseStudies,
     CaseStudyDetail,
-    Insights,
-    NewsDetail,
     About,
     ContactPage,
   ],

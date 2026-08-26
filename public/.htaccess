@@ -1,0 +1,28 @@
+# Angular is a client-side-routed single-page app — every real URL
+# (/capabilities, /case-studies/some-slug, etc.) needs to fall back to
+# index.html so the Angular router can take over, since there's no actual
+# file at those paths on the server.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Let real files/folders (JS, CSS, images, index.html itself) serve directly.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else goes to index.html.
+  RewriteRule ^ /index.html [L]
+</IfModule>
+
+# Angular's build hashes JS/CSS filenames (main-XXXX.js), so they're safe to
+# cache aggressively — a new deploy gets new filenames automatically.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
