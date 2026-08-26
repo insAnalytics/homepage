@@ -30,7 +30,7 @@ export class ContentService {
           credentials,
           initials,
           linkedin,
-          "photo": photo.asset->url,
+          "photo": photo.asset->url + "?w=200&auto=format&q=80",
           visible,
           featuredOnHome,
           _id,
@@ -49,7 +49,7 @@ export class ContentService {
           "slug": slug.current,
           title,
           summary,
-          "image": image.asset->url,
+          "image": image.asset->url + "?w=1600&auto=format&q=80",
           solutions[]{
             title,
             body,
@@ -76,10 +76,10 @@ export class ContentService {
         summary,
         body[]{
           ...,
-          _type == "image" => { "url": asset->url, caption },
+          _type == "image" => { "url": asset->url + "?w=1600&auto=format&q=80", caption },
           _type == "pdfBlock" => { label, "url": file.asset->url }
         },
-        "image": image.asset->url,
+        "image": image.asset->url + "?w=1600&auto=format&q=80",
         "team": team[defined(@->name)]->{
           "slug": slug.current,
           name,
@@ -87,7 +87,7 @@ export class ContentService {
           credentials,
           initials,
           linkedin,
-          "photo": photo.asset->url
+          "photo": photo.asset->url + "?w=200&auto=format&q=80"
         },
         "featured": _id == *[_type == "featuredContent"][0].caseStudy._ref
       }`
@@ -105,10 +105,10 @@ export class ContentService {
         summary,
         body[]{
           ...,
-          _type == "image" => { "url": asset->url, caption },
+          _type == "image" => { "url": asset->url + "?w=1600&auto=format&q=80", caption },
           _type == "pdfBlock" => { label, "url": file.asset->url }
         },
-        "image": image.asset->url,
+        "image": image.asset->url + "?w=1600&auto=format&q=80",
         "featured": _id == *[_type == "featuredContent"][0].newsItem._ref
       }`
     );
@@ -122,7 +122,7 @@ export class ContentService {
           name,
           title,
           quote,
-          "logo": logo.asset->url,
+          "logo": logo.asset->url + "?w=440&auto=format&q=80",
           "letterUrl": letterUrl.asset->url,
           _id,
           _createdAt
