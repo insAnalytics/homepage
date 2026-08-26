@@ -45,7 +45,8 @@
 }
 
 .case-study-detail__hero-media {
-  height: 320px;
+  // 16:9 rather than a fixed height — see news-detail.scss for why.
+  aspect-ratio: 16 / 9;
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 40px;
