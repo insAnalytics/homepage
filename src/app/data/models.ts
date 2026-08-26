@@ -102,7 +102,7 @@ export interface CaseStudy {
   team?: TeamMember[];
 }
 
-export type NewsCategory = 'Project' | 'Partnership' | 'Speaking';
+export type NewsCategory = 'Developments' | 'Partnership' | 'Events';
 
 export interface NewsItem {
   slug: string;

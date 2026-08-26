@@ -43,7 +43,7 @@
         *ngFor="let tab of tabs"
         [class.active]="activeTab === tab"
         (click)="setTab(tab)">
-        {{ tab === 'All' ? 'All updates' : (tab === 'Speaking' ? 'Speaking & events' : (tab === 'Project' ? 'Recent developments' : tab + 's')) }}
+        {{ tab === 'All' ? 'All updates' : (tab === 'Partnership' ? 'Partnerships' : tab) }}
       </button>
     </div>
     <div class="insights-list__grid">

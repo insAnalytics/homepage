@@ -23,7 +23,7 @@ export default defineType({
       name: 'category',
       title: 'Category',
       type: 'string',
-      options: {list: ['Project', 'Partnership', 'Speaking']},
+      options: {list: ['Developments', 'Partnership', 'Events']},
       validation: (rule) => rule.required(),
     }),
     defineField({

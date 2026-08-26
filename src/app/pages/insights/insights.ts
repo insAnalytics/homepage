@@ -12,7 +12,7 @@ type Tab = 'All' | NewsCategory;
 })
 export class Insights implements OnInit {
   news: NewsItem[] = [];
-  tabs: Tab[] = ['All', 'Project', 'Partnership', 'Speaking'];
+  tabs: Tab[] = ['All', 'Developments', 'Partnership', 'Events'];
   activeTab: Tab = 'All';
   newsletterEmail = '';
   newsletterSubmitted = false;
