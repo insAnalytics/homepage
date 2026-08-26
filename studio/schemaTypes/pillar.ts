@@ -37,6 +37,13 @@ export default defineType({
       type: 'array',
       of: [{type: 'solution'}],
     }),
+    defineField({
+      name: 'visible',
+      title: 'Visible on site',
+      description: 'Turn off to hide this pillar from the site without deleting it.',
+      type: 'boolean',
+      initialValue: true,
+    }),
   ],
   preview: {
     select: {title: 'title', subtitle: 'summary'},

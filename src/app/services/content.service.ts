@@ -45,7 +45,7 @@ export class ContentService {
     return this.load<{ pillars: (Pillar & Ordered)[]; order: string[] }>(
       'pillars',
       `{
-        "pillars": *[_type == "pillar"]{
+        "pillars": *[_type == "pillar" && visible != false]{
           "slug": slug.current,
           title,
           summary,
@@ -67,7 +67,7 @@ export class ContentService {
   getCaseStudies(): Observable<CaseStudy[]> {
     return this.load<CaseStudy[]>(
       'case-studies',
-      `*[_type == "caseStudy"]{
+      `*[_type == "caseStudy" && visible != false]{
         "slug": slug.current,
         "industries": coalesce(industries[defined(@->name)]->name, []),
         "technologies": coalesce(technologies[defined(@->name)]->name, []),
@@ -97,7 +97,7 @@ export class ContentService {
   getNews(): Observable<NewsItem[]> {
     return this.load<NewsItem[]>(
       'news',
-      `*[_type == "newsItem"]{
+      `*[_type == "newsItem" && visible != false]{
         "slug": slug.current,
         category,
         date,
@@ -118,7 +118,7 @@ export class ContentService {
     return this.load<{ cards: (TestimonialCard & Ordered)[]; order: string[] }>(
       'testimonials-corporate',
       `{
-        "cards": *[_type == "corporateTestimonial"]{
+        "cards": *[_type == "corporateTestimonial" && visible != false]{
           name,
           title,
           quote,
@@ -136,7 +136,7 @@ export class ContentService {
     return this.load<{ cards: (TestimonialCard & Ordered)[]; order: string[] }>(
       'testimonials-training',
       `{
-        "cards": *[_type == "trainingTestimonial"]{
+        "cards": *[_type == "trainingTestimonial" && visible != false]{
           name,
           title,
           quote,

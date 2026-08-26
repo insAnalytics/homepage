@@ -78,6 +78,13 @@ export default defineType({
       type: 'array',
       of: [{type: 'reference', to: [{type: 'teamMember'}]}],
     }),
+    defineField({
+      name: 'visible',
+      title: 'Visible on site',
+      description: 'Turn off to hide this case study from the site without deleting it.',
+      type: 'boolean',
+      initialValue: true,
+    }),
   ],
   preview: {
     select: {title: 'headline', subtitle: 'geography', media: 'image'},

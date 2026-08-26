@@ -52,6 +52,13 @@ export default defineType({
       type: 'image',
       description: 'Falls back to the logo on the site until a real image is set.',
     }),
+    defineField({
+      name: 'visible',
+      title: 'Visible on site',
+      description: 'Turn off to hide this update from the site without deleting it.',
+      type: 'boolean',
+      initialValue: true,
+    }),
   ],
   preview: {
     select: {title: 'title', subtitle: 'category', media: 'image'},

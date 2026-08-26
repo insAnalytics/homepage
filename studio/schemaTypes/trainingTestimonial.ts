@@ -30,6 +30,13 @@ export default defineType({
       type: 'boolean',
       initialValue: false,
     }),
+    defineField({
+      name: 'visible',
+      title: 'Visible on site',
+      description: 'Turn off to hide this testimonial from the site without deleting it.',
+      type: 'boolean',
+      initialValue: true,
+    }),
   ],
   preview: {
     select: {title: 'name', subtitle: 'title'},
