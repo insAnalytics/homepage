@@ -25,15 +25,17 @@
 }
 
 .news-detail__hero-media {
-  // 16:9 rather than a fixed height — most uploaded event/announcement
-  // graphics are close to this ratio, so object-fit: cover below only
-  // trims the edges instead of cropping deep into the image (a fixed
-  // 320px height against a ~1040px-wide container was closer to 3:1,
-  // aggressively cropping the top/bottom of anything upload as 16:9).
+  // Fixed 16:9 frame so the page layout stays consistent regardless of what
+  // shape image gets uploaded — but uploaded graphics (event posters, flyers)
+  // vary wildly in their own aspect ratio, wide banners and tall portrait
+  // posters alike, and no single fixed ratio + object-fit: cover avoids
+  // cropping content on all of them. object-fit: contain below shows the
+  // whole image always, letterboxed in black rather than cropped.
   aspect-ratio: 16 / 9;
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 40px;
+  background: $dark;
 
   &--placeholder {
     display: flex;
@@ -47,7 +49,7 @@
 .news-detail__hero-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .news-detail__hero-media--placeholder .news-detail__hero-image {

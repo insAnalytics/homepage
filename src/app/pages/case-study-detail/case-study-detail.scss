@@ -45,11 +45,13 @@
 }
 
 .case-study-detail__hero-media {
-  // 16:9 rather than a fixed height — see news-detail.scss for why.
+  // Fixed 16:9 frame, letterboxed with object-fit: contain — see
+  // news-detail.scss for why cover was replaced.
   aspect-ratio: 16 / 9;
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 40px;
+  background: $dark;
 
   &--placeholder {
     display: flex;
@@ -63,7 +65,7 @@
 .case-study-detail__hero-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .case-study-detail__hero-media--placeholder .case-study-detail__hero-image {
